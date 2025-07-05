@@ -11,7 +11,10 @@ export const createClient = async (req, res) => {
 };
 
 export const getClients = async (req, res) => {
-    const clients = await Client.find();
-    res.json(clients);
+    try {
+        const clients = await Client.find();
+        res.status(200).json(clients);
+    } catch (err) {
+        res.status(500).json({ error: 'Failed to fetch clients.' });
+    }
 };
-
