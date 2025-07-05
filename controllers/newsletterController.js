@@ -1,9 +1,4 @@
 import Newsletter from '../models/Newsletter.js';
-import { subscribeNewsletter, getSubscribers } from '../controllers/newsletterController.js';
-
-router.post('/newsletter', subscribeNewsletter);
-router.get('/newsletter', getSubscribers);
-
 
 export const getSubscribers = async (req, res) => {
   try {
