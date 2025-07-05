@@ -1,8 +1,10 @@
+// routes/newsletterRoutes.js
 import express from 'express';
-import { getSubscribers, subscribe } from '../controllers/newsletterController.js';
+import { subscribeNewsletter, getSubscribers } from '../controllers/newsletterController.js';
 
 const router = express.Router();
-router.get('/', getSubscribers);
-router.post('/', subscribe);
+
+router.post('/newsletter', subscribeNewsletter);
+router.get('/newsletter', getSubscribers);
 
 export default router;
