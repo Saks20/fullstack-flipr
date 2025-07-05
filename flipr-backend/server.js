@@ -2,6 +2,7 @@
 import express from 'express';
 import path from 'path';
 import dotenv from 'dotenv';
+import app from './app.js';
 import { fileURLToPath } from 'url';
 
 import contactRoutes from './routes/contactRoutes.js';
