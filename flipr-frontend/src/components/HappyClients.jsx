@@ -3,12 +3,12 @@ import React, { useEffect, useState } from 'react';
 const HappyClients = () => {
   const [clients, setClients] = useState([]);
 
-  useEffect(() => {
-    fetch('http://localhost:5000/api/clients')
-      .then(res => res.json())
-      .then(data => setClients(data))
-      .catch(err => console.error('Error fetching clients:', err));
-  }, []);
+ useEffect(() => {
+  fetch('/api/clients')
+    .then(res => res.json())
+    .then(data => setClients(data))
+    .catch(err => console.error('Error fetching clients:', err));
+}, []);
 
   return (
     <section className="p-6 bg-gray-50">
