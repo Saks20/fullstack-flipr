@@ -1,0 +1,16 @@
+import Client from '../models/Client.js';
+
+export const createClient = async (req, res) => {
+    try {
+        const newClient = new Client(req.body);
+        await newClient.save();
+        res.status(201).json({ message: 'Client saved!' });
+    } catch (err) {
+        res.status(500).json({ error: 'Failed to save client.' });
+    }
+};
+
+export const getClients = async (req, res) => {
+    const clients = await Client.find();
+    res.json(clients);
+};
