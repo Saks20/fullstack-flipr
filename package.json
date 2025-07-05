@@ -1,7 +1,7 @@
 {
   "name": "flipr-backend",
   "version": "1.0.0",
-
+  "type": "module",
   "scripts": {
     "start": "node server/server.js",
     "build": "npm run build --prefix client"
