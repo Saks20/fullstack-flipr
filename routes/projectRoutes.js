@@ -1,11 +1,11 @@
 // routes/projectRoutes.js
-const express = require('express');
+import express from 'express';
 const router = express.Router();
 
 router.post('/projects', (req, res) => {
     const { title, description, link } = req.body;
-    // Save to database (MongoDB, etc.)
+    // TODO: Save to MongoDB
     res.status(201).json({ message: 'Project created successfully' });
 });
 
-module.exports = router;
+export default router;

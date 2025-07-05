@@ -1,20 +1,27 @@
-const express = require('express');
-const path = require('path');
-require('dotenv').config();
+// server.js
+import express from 'express';
+import path from 'path';
+import dotenv from 'dotenv';
+import { fileURLToPath } from 'url';
 
-const contactRoutes = require('./routes/contactRoutes');
-const projectRoutes = require('./routes/projectRoutes'); // ← Add this line
-const clientRoutes = require('./routes/clientRoutes');
-const newsletterRoutes = require('./routes/newsletterRoutes');
+import contactRoutes from './routes/contactRoutes.js';
+import projectRoutes from './routes/projectRoutes.js';
+import clientRoutes from './routes/clientRoutes.js';
+import newsletterRoutes from './routes/newsletterRoutes.js';
+
+dotenv.config();
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const app = express();
 app.use(express.json());
 
-// Mount both route modules
+// Mount all route modules
 app.use('/api', clientRoutes);
 app.use('/api', newsletterRoutes);
 app.use('/api', contactRoutes);
-app.use('/api', projectRoutes); // ← Add this line too
+app.use('/api', projectRoutes);
 
 // Serve static frontend
 app.use(express.static(path.join(__dirname, 'public')));

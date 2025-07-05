@@ -1,14 +1,13 @@
 // routes/contactRoutes.js
-const express = require('express');
+import express from 'express';
 const router = express.Router();
 
 router.post('/contact', (req, res) => {
     const { name, email, phone, city } = req.body;
-
-    // You can add DB saving logic here
     console.log('📩 New contact submission:', { name, email, phone, city });
 
+    // TODO: Save to MongoDB
     res.status(200).json({ message: 'Contact received!' });
 });
 
-module.exports = router;
+export default router;
