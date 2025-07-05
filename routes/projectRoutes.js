@@ -1,9 +1,11 @@
-import express from 'express';
-import { getProjects, createProject } from '../controllers/projectController.js';
-
+// routes/projectRoutes.js
+const express = require('express');
 const router = express.Router();
 
-router.get('/', getProjects);
-router.post('/', createProject);
+router.post('/projects', (req, res) => {
+    const { title, description, link } = req.body;
+    // Save to database (MongoDB, etc.)
+    res.status(201).json({ message: 'Project created successfully' });
+});
 
-export default router;
+module.exports = router;
